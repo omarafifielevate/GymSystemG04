@@ -1,4 +1,4 @@
-﻿namespace GymSystemG04.Models
+﻿namespace GymSystem.DAL.Models
 {
     public class Plan
     {

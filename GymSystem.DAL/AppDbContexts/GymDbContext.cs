@@ -1,17 +1,15 @@
-﻿using GymSystemG04.Configurations;
-using GymSystemG04.Models;
+﻿using GymSystem.DAL.Configurations;
+using GymSystem.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GymSystemG04.AppDbContexts
+namespace GymSystem.DAL.AppDbContexts
 {
     public class GymDbContext : DbContext
     {
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public GymDbContext(DbContextOptions contextOptions) : base(contextOptions)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=GymManagmentG04;Trusted_Connection=true;TrustServerCertificate=true;");
+            
         }
-
 
         public DbSet<Plan> Plans { get; set; }
 
