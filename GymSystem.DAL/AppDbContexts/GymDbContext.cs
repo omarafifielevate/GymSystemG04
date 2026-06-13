@@ -1,6 +1,7 @@
 ﻿using GymSystem.DAL.Configurations;
 using GymSystem.DAL.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace GymSystem.DAL.AppDbContexts
 {
@@ -12,10 +13,16 @@ namespace GymSystem.DAL.AppDbContexts
         }
 
         public DbSet<Plan> Plans { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<HealthRecords> HealthRecords { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new PlanConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
 
